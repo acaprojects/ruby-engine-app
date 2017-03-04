@@ -1,0 +1,16 @@
+common: &common
+  hosts: localhost
+  password:
+
+development:
+  <<: *common
+  bucket: default
+
+test:
+  <<: *common
+  bucket: engine_app_test
+
+# set these environment variables on your production server
+production:
+  <<: *common
+  bucket: default
