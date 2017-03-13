@@ -12,5 +12,6 @@ test:
 
 # set these environment variables on your production server
 production:
-  <<: *common
-  bucket: default
+  hosts: <%= ENV['COUCHBASE_HOST'] %>
+  bucket: <%= ENV['COUCHBASE_BUCKET'] %>
+  password: <%= ENV['COUCHBASE_PASSWORD'] %>
