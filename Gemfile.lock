@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/QuayPay/coauth.git
-  revision: 8ece7cc05dceba3bef6ff435bd7e24788c87f364
+  revision: 70c92df6d3c1e0992261b11e3a5bebaa796ef8e8
   branch: couchbase-orm
   specs:
     coauth (1.0.0)
