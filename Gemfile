@@ -14,7 +14,8 @@ gem 'couchbase-orm'
 
 # Authentication
 gem 'doorkeeper-couchbase'
-gem 'coauth', github: 'QuayPay/coauth', branch: 'couchbase-orm'
+# gem 'coauth', github: 'QuayPay/coauth', branch: 'couchbase-orm'
+gem 'coauth', path: '../coauth'
 
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
