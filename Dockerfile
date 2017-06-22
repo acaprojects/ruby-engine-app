@@ -1,4 +1,4 @@
-FROM ruby:2.3-alpine
+FROM quay.io/acaprojects/ruby-alpine
 LABEL version="1.0"
 
 COPY entrypoint.sh /entrypoint.sh
