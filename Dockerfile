@@ -21,7 +21,7 @@ RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/Quay
     git clone --depth=1 https://github.com/acaprojects/ruby-engine-app.git
 
 WORKDIR /home/aca-apps/ruby-engine-app
-RUN bundle install 
+RUN bundle update 
 
 USER root
 RUN apk del make cmake python && \
