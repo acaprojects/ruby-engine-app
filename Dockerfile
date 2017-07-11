@@ -15,13 +15,10 @@ RUN gem install libcouchbase bundler rails && \
 USER aca-apps
 WORKDIR /home/aca-apps
 
-RUN git clone --depth=1 https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
+RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
     git clone --depth=1 https://github.com/acaprojects/ruby-engine.git && \
     git clone --depth=1 https://github.com/acaprojects/aca-device-modules.git && \
     git clone --depth=1 https://github.com/acaprojects/ruby-engine-app.git
-
-WORKDIR /home/aca-apps/coauth
-RUN git checkout couchbase-orm
 
 WORKDIR /home/aca-apps/ruby-engine-app
 RUN bundle install 
