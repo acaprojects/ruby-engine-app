@@ -2,8 +2,24 @@ FROM quay.io/acaprojects/ruby-alpine
 LABEL version="1.0"
 
 COPY entrypoint.sh /entrypoint.sh
-RUN adduser -D aca-apps && \
+
+# Workaround for https://github.com/moby/moby/issues/15858
+WORKDIR /home/aca-apps/ruby-engine-app
+COPY .gitignore Gemfile README.md Rakefile config.ru gems.txt ./
+COPY app/ ./app/
+COPY bin/ ./bin/
+COPY config/ ./config/
+COPY db/ ./db/
+COPY lib/ ./lib/
+COPY log/ ./log/
+COPY public/ ./public/
+COPY test/ ./test/
+COPY tmp/ ./tmp/
+     
+RUN ls -alR /home/aca-apps/ruby-engine-app && \
+    adduser -D aca-apps && \
     chmod a+x /entrypoint.sh && \
+    chown -R aca-apps:aca-apps /home/aca-apps && \
     apk update && \
     apk add bash tzdata curl nano git openssh   g++ make python  cmake perl libev-dev libuv-dev && \
     cp /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
@@ -15,13 +31,17 @@ RUN gem install libcouchbase bundler rails && \
 USER aca-apps
 WORKDIR /home/aca-apps
 
-RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
-    git clone --depth=1 https://github.com/acaprojects/ruby-engine.git && \
-    git clone --depth=1 https://github.com/acaprojects/aca-device-modules.git && \
-    git clone --depth=1 https://github.com/acaprojects/ruby-engine-app.git
+
+RUN git clone https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
+    git clone https://github.com/acaprojects/ruby-engine.git && \
+    git clone https://github.com/acaprojects/aca-device-modules.git && \
+    git clone https://github.com/aca-labs/omniauth-jwt
+
+WORKDIR /home/aca-apps/coauth
+RUN git checkout couchbase-orm
 
 WORKDIR /home/aca-apps/ruby-engine-app
-RUN bundle update 
+RUN bundle install 
 
 USER root
 RUN apk del make cmake python && \
