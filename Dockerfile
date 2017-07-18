@@ -32,16 +32,13 @@ USER aca-apps
 WORKDIR /home/aca-apps
 
 
-RUN git clone https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
-    git clone https://github.com/acaprojects/ruby-engine.git && \
-    git clone https://github.com/acaprojects/aca-device-modules.git && \
-    git clone https://github.com/aca-labs/omniauth-jwt
-
-WORKDIR /home/aca-apps/coauth
-RUN git checkout couchbase-orm
+RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
+    git clone --depth=1 https://github.com/acaprojects/ruby-engine.git && \
+    git clone --depth=1 https://github.com/acaprojects/aca-device-modules.git && \
+    git clone --depth=1 https://github.com/aca-labs/omniauth-jwt
 
 WORKDIR /home/aca-apps/ruby-engine-app
-RUN bundle install 
+RUN bundle update 
 
 USER root
 RUN apk del make cmake python && \
