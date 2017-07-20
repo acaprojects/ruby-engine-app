@@ -1,10 +1,10 @@
 common: &common
-  hosts: localhost
-  password:
+  hosts: <%= ENV['COUCHBASE_HOST'] || 'localhost' %> 
+  password: <%= ENV['COUCHBASE_PASSWORD'] %>
 
 development:
   <<: *common
-  bucket: default
+  bucket: <%= ENV['COUCHBASE_BUCKET'] || 'default' %>
 
 test:
   <<: *common

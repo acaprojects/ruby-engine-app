@@ -5,6 +5,10 @@ if [ "$1" == "engine" ]; then
     cd /home/aca-apps/ruby-engine-app
     exec bundle exec sg -p 8080 -e production
 
+elif [ "$1" == "engine-dev" ]; then
+    cd /home/aca-apps/ruby-engine-app
+    exec bundle exec sg -p 8080 -e development
+
 elif [ "$1" == "cotag" ]; then
     cd /home/aca-apps/cotag-api
     exec bundle exec sg -p 8080 -e production
