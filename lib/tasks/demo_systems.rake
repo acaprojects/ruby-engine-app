@@ -53,6 +53,8 @@ namespace :demo do
 			mod.control_system_id =	sys.id
 			mod.edge_id = 			node_id
 			mod.save
+		  	sys.modules = [mod.id]
+			sys.save
 			puts "#{dep.name} added to #{sys.name} as #{mod.id}"
     	end
 	end
