@@ -25,18 +25,35 @@ namespace :demo do
         if sys
             puts "System exists: #{systemName}"
         else
+	        node_id = ::Orchestrator::Remote::NodeId
+
             sys = ::Orchestrator::ControlSystem.new
 	        sys.name = 	systemName
 	        sys.zones = [z.id]
-	        sys.edge_id = ::Orchestrator::Remote::NodeId
+	        sys.edge_id = node_id
 	        sys.save
 	        sys.support_url = supportURL + sys.id
+	        sys.description = "[Markdown Format](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) supported here"
 	        sys.save
 			puts "System created: #{systemName}"
+
+			#Import the Logic Driver
+			dep = ::Orchestrator::Dependency.new
+			dep.name = 			"ACA Meeting Room Logic"
+			dep.role = 			"logic"
+			dep.class_name = 	"::Aca::MeetingRoom"
+			dep.module_name = 	"System"
+			dep.settings = 		{"joiner_driver" => "System"}
+			dep.save
+			puts "Driver created: #{dep.name}"
+
+			#Add the Logic to the System
+			mod = ::Orchestrator::Module.new
+			mod.dependency_id = 	dep.id
+			mod.control_system_id =	sys.id
+			mod.edge_id = 			node_id
+			mod.save
+			puts "#{dep.name} added to #{sys.name} as #{mod.id}"
     	end
-
-		#Import the Logic Driver
-		#Add the Logic
-
 	end
 end
