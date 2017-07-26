@@ -79,6 +79,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     algorithms (0.6.1)
     arel (8.0.0)
+    bindex (0.5.0)
     bisect (0.1)
     builder (3.2.3)
     byebug (9.0.6)
@@ -112,7 +113,7 @@ GEM
       ipaddress (~> 0.8)
       libuv (~> 3.1)
       net-ssh (~> 4.1)
-    faraday (0.12.1)
+    faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     ffi-compiler (1.0.1)
@@ -130,7 +131,7 @@ GEM
       concurrent-ruby (~> 1.0)
       ffi (~> 1.9)
       libuv (>= 3.0.1, < 4)
-    libuv (3.1.9)
+    libuv (3.2.1)
       concurrent-ruby (~> 1.0)
       ffi (~> 1.9)
       ruby-tls (~> 2.1)
@@ -146,7 +147,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     net-http-digest_auth (1.4.1)
@@ -243,6 +244,11 @@ GEM
       parse-cron (~> 0.1)
       rubyntlm (~> 0.6)
       tzinfo (~> 1.2)
+    web-console (3.5.1)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      bindex (>= 0.4.0)
+      railties (>= 5.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -262,6 +268,7 @@ DEPENDENCIES
   rails (~> 5.0, >= 5.0.0.1)
   spider-gazelle (~> 3.0)
   tzinfo-data
+  web-console
 
 BUNDLED WITH
    1.15.1
