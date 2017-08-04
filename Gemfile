@@ -11,6 +11,7 @@ gem 'aca-device-modules', path: '../aca-device-modules'
 
 # Database
 gem 'couchbase-orm'
+gem 'libcouchbase', "1.0.0"
 
 # Authentication
 gem 'doorkeeper-couchbase'
