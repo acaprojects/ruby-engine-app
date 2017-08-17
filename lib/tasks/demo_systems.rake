@@ -7,7 +7,7 @@ namespace :demo do
     zoneName  = 'Demo Zone'
     systemName  = 'Demo System'
     logics    = ['ACA Demo Logic']
-    supportURL  = "http://localhost:#{ENV['DEV_PORT']}/demo-ui/#/?ctrl="
+    supportURL  = "http://localhost:#{ENV['WWW_PORT']}/#/"
 
     #Create the Zone
     z=::Orchestrator::Zone.find_by_name zoneName
