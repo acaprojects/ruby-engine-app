@@ -7,7 +7,7 @@ namespace :demo do
     zoneName  = 'Demo Zone'
     systemName  = 'Demo System'
     logics    = ['ACA Demo Logic']
-    supportURL  = "http://localhost:#{ENV['WWW_PORT']}/#/"
+    supportURL  = "http://localhost:#{ENV['DEV_PORT']}/#/"
 
     #Create the Zone
     z=::Orchestrator::Zone.find_by_name zoneName
@@ -32,7 +32,7 @@ namespace :demo do
       sys.edge_id = node_id
       sys.save
       sys.support_url = supportURL + sys.id
-      sys.description = "For front-end dev, run the [demo-ui kit](https://github.com/acaprojects/demo-ui) on your PC\n[Markdown Format](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) supported here"
+      sys.description = "[demo-ui](https://github.com/acaprojects/demo-ui) has been cloned into your setup-dev folder. To start building, `cd demo-ui` then `npm install` then `gulp serve` and click the Support URL above."
       sys.save
       puts "System created: #{systemName}"
 
@@ -41,7 +41,7 @@ namespace :demo do
       dep.name =      "ACA Demo Logic"
       dep.role =      "logic"
       dep.class_name =  "::Aca::DemoLogic"
-      dep.module_name =   "System"
+      dep.module_name =   "Demo"
       dep.settings =    {"joiner_driver" => "System"}
       dep.save
       puts "Driver created: #{dep.name}"
