@@ -42,7 +42,7 @@ WORKDIR /home/aca-apps/ruby-engine-app
 RUN bundle update 
 
 USER root
-RUN apk del make cmake python && \
+RUN apk del cmake && \
     rm -rf /var/cache/apk/*
 
 RUN echo "=====================================================" && \
