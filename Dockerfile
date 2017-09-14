@@ -1,5 +1,4 @@
-FROM quay.io/acaprojects/ruby-alpine
-LABEL version="1.0"
+FROM ruby:2.4-alpine3.6
 
 COPY entrypoint.sh /entrypoint.sh
 
@@ -42,7 +41,7 @@ WORKDIR /home/aca-apps/ruby-engine-app
 RUN bundle update 
 
 USER root
-RUN apk del make cmake python && \
+RUN apk del cmake && \
     rm -rf /var/cache/apk/*
 
 RUN echo "=====================================================" && \
