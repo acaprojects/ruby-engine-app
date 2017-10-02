@@ -37,6 +37,9 @@ RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/Quay
     git clone --depth=1 https://github.com/acaprojects/aca-device-modules.git && \
     git clone --depth=1 https://github.com/aca-labs/omniauth-jwt
 
+WORKDIR /home/aca-apps/ruby-engine
+RUN git checkout 3a10c0e4b635b361282f8d985f936582dea0b41c
+
 WORKDIR /home/aca-apps/ruby-engine-app
 RUN bundle update 
 
