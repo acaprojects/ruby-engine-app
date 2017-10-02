@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.0', '>= 5.0.0.1'
 
 # High performance multi-threaded web server
 gem 'spider-gazelle', '~> 3.0'
