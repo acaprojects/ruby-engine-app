@@ -41,6 +41,6 @@ RUN apk del cmake && \
 RUN echo "=====================================================" && \
     cat Gemfile.lock
 
-ENV RAILS_ENV=production DISABLE_SPRING=1
+ENV RAILS_ENV=production DISABLE_SPRING=1 RAILS_LOG_TO_STDOUT=true
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["engine"]
