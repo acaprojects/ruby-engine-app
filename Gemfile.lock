@@ -262,7 +262,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2017.2)
       tzinfo (>= 1.0.0)
-    uv-rays (2.2.2)
+    uv-rays (2.3.0)
       activesupport (>= 4, < 6)
       addressable (~> 2.4)
       bisect (~> 0.1)
