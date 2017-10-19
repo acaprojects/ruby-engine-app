@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine3.6
+FROM aca0/engine-deps:master
 
 COPY entrypoint.sh /entrypoint.sh
 
@@ -15,22 +15,12 @@ COPY log/ ./log/
 COPY public/ ./public/
 COPY test/ ./test/
 COPY tmp/ ./tmp/
-     
-RUN ls -alR /home/aca-apps/ruby-engine-app && \
-    adduser -D aca-apps && \
-    chmod a+x /entrypoint.sh && \
-    chown -R aca-apps:aca-apps /home/aca-apps && \
-    apk update && \
-    apk add bash tzdata curl nano git openssh   g++ make python  cmake perl libev-dev libuv-dev && \
-    cp /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
+
+RUN chmod a+x /entrypoint.sh && \
+    cp -f /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
     echo "Australia/Sydney" >  /etc/timezone
 
-RUN gem install libcouchbase bundler rails && \ 
-    chmod -R 777 $BUNDLE_PATH
-
-USER aca-apps
 WORKDIR /home/aca-apps
-
 
 RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
     git clone --depth=1 --single-branch -b stable https://github.com/acaprojects/ruby-engine.git && \
@@ -40,14 +30,12 @@ RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/Quay
 WORKDIR /home/aca-apps/ruby-engine-app
 RUN bundle update 
 
-USER root
 RUN apk del cmake && \
     rm -rf /var/cache/apk/*
 
 RUN echo "=====================================================" && \
     cat Gemfile.lock
 
-USER aca-apps
-ENV RAILS_ENV=production DISABLE_SPRING=1
+ENV RAILS_ENV=production DISABLE_SPRING=1 RAILS_LOG_TO_STDOUT=true
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["engine"]
