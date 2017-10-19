@@ -237,7 +237,7 @@ GEM
     rspec-support (3.7.0)
     ruby-saml (1.5.0)
       nokogiri (>= 1.5.10)
-    ruby-tls (2.3.2)
+    ruby-tls (2.3.3)
       concurrent-ruby (~> 1.0)
       ffi-compiler (>= 1.0, < 2.0)
     rubyntlm (0.6.2)
