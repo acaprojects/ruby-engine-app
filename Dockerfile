@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine3.6
+FROM aca0/engine-deps:master
 
 COPY entrypoint.sh /entrypoint.sh
 
@@ -17,13 +17,8 @@ COPY test/ ./test/
 COPY tmp/ ./tmp/
 
 RUN chmod a+x /entrypoint.sh && \
-    apk update && \
-    apk add bash tzdata curl nano git openssh   g++ make python  cmake perl libev-dev libuv-dev && \
-    cp /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
+    cp -f /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
     echo "Australia/Sydney" >  /etc/timezone
-
-RUN gem install libcouchbase bundler rails && \ 
-    chmod -R 777 $BUNDLE_PATH
 
 WORKDIR /home/aca-apps
 
@@ -41,6 +36,6 @@ RUN apk del cmake && \
 RUN echo "=====================================================" && \
     cat Gemfile.lock
 
-ENV RAILS_ENV=production DISABLE_SPRING=1
+ENV RAILS_ENV=production DISABLE_SPRING=1 RAILS_LOG_TO_STDOUT=true
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["engine"]
