@@ -4,7 +4,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 # Workaround for https://github.com/moby/moby/issues/15858
 WORKDIR /home/aca-apps/ruby-engine-app
-COPY .gitignore Gemfile README.md Rakefile config.ru gems.txt ./
+COPY .gitignore Gemfile README.md Rakefile config.ru ./
 COPY .git ./.git/
 COPY app/ ./app/
 COPY bin/ ./bin/
