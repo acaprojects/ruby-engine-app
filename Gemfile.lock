@@ -241,7 +241,7 @@ GEM
     rubyntlm (0.6.2)
     scrypt (3.0.5)
       ffi-compiler (>= 1.0, < 2.0)
-    spider-gazelle (3.0.7)
+    spider-gazelle (3.0.8)
       http-2 (~> 0.8)
       http-parser (~> 1.1)
       libuv (~> 3.0)
