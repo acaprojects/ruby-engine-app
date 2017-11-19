@@ -115,7 +115,7 @@ GEM
     email_validator (1.6.0)
       activemodel
     erubi (1.7.0)
-    evented-ssh (0.0.4)
+    evented-ssh (0.1.0)
       ipaddress (~> 0.8)
       libuv (~> 3.1)
       net-ssh (~> 4.1)
@@ -135,7 +135,7 @@ GEM
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     jwt (1.5.6)
-    libcouchbase (1.2.4)
+    libcouchbase (1.2.6)
       concurrent-ruby (~> 1.0)
       ffi (~> 1.9)
       libuv (>= 3.2.2, < 4)
@@ -190,7 +190,7 @@ GEM
     public_suffix (3.0.1)
     pyu-ruby-sasl (0.0.3.3)
     rack (2.0.3)
-    rack-test (0.7.0)
+    rack-test (0.7.1)
       rack (>= 1.0, < 3)
     radix (2.2.1)
     rails (5.1.4)
@@ -241,7 +241,7 @@ GEM
     rubyntlm (0.6.2)
     scrypt (3.0.5)
       ffi-compiler (>= 1.0, < 2.0)
-    spider-gazelle (3.0.9)
+    spider-gazelle (3.1.0)
       http-2 (~> 0.8)
       http-parser (~> 1.1)
       libuv (~> 3.0)
@@ -261,7 +261,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2017.3)
       tzinfo (>= 1.0.0)
-    uv-rays (2.4.0)
+    uv-rays (2.4.1)
       activesupport (>= 4, < 6)
       addressable (~> 2.4)
       bisect (~> 0.1)
@@ -300,4 +300,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.15.1
+   1.16.0
