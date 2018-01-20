@@ -12,6 +12,7 @@ COPY config/ ./config/
 COPY db/ ./db/
 COPY lib/ ./lib/
 COPY log/ ./log/
+COPY modules/ ./modules/
 COPY public/ ./public/
 COPY test/ ./test/
 COPY tmp/ ./tmp/
