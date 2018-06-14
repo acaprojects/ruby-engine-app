@@ -14,7 +14,7 @@ In your fork:
 ```
 git remote add ruby-engine-app https://github.com/acaprojects/ruby-engine-app.git
 git remote set-url --push ruby-engine-app no-pushing-allowed  #Just to ensure you don't push your private fork to this public repo
-git pull ruby-engine-app stable #OR master
+git pull -X theirs ruby-engine-app stable #OR master
 git push origin master
 ```
  
