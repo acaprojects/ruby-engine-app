@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-RUBY_ENGINE = 'jruby'
 
 gem 'rails', '~> 5.0', '>= 5.0.0.1'
 
@@ -18,6 +17,7 @@ gem 'doorkeeper-couchbase'
 # gem 'coauth', github: 'QuayPay/coauth', branch: 'couchbase-orm'
 gem 'coauth', path: '../coauth'
 
+gem 'xorcist', github: 'aca-labs/xorcist'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
