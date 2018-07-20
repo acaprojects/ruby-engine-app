@@ -12,8 +12,9 @@ Dev | [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOw
 ### Updating forks from this repo ###
 In your fork:
 ```
-git remote add base https://github.com/acaprojects/ruby-engine-app.git
-git remote set-url --push base no-pushing-allowed  #Just to ensure you don't push your private fork to this public repo
-git pull base stable #OR master
+git remote add ruby-engine-app https://github.com/acaprojects/ruby-engine-app.git
+git remote set-url --push ruby-engine-app no-pushing-allowed  #Just to ensure you don't push your private fork to this public repo
+git pull -X theirs ruby-engine-app stable #OR master
 git push origin master
 ```
+ 
