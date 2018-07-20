@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+RUBY_ENGINE = 'jruby'
 
 gem 'rails', '~> 5.0', '>= 5.0.0.1'
 
