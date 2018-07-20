@@ -1,4 +1,4 @@
-FROM aca0/engine-deps:master
+FROM aca0/engine-deps:jruby
 
 COPY entrypoint.sh /entrypoint.sh
 
