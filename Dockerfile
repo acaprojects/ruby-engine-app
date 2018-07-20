@@ -25,7 +25,7 @@ WORKDIR /home/aca-apps
 
 RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
     git clone --depth=1 https://github.com/acaprojects/ruby-engine.git && \
-    git clone --depth=1 https://github.com/acaprojects/aca-device-modules.git && \
+    git clone --depth=1 -b beta https://github.com/acaprojects/aca-device-modules.git && \
     git clone --depth=1 https://github.com/aca-labs/omniauth-jwt
 
 WORKDIR /home/aca-apps/ruby-engine-app
