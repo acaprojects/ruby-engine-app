@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-mv Gemfile.lock Gemfile.lock.from-git-repo
+mv Gemfile.lock Gemfile.lock.from-git-repo 2>/dev/null
 mv ../Gemfile.lock.from-docker-build Gemfile.lock
 
 if [ "$1" == "engine" ]; then
