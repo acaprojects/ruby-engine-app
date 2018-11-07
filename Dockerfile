@@ -36,7 +36,7 @@ RUN apk del cmake && \
 
 RUN echo "=====================================================" && \
     cat Gemfile.lock && \
-    cp Gemfile.lock Gemfile.lock.from-docker-build
+    cp Gemfile.lock ../Gemfile.lock.from-docker-build
 
 ENV RAILS_ENV=production DISABLE_SPRING=1 RAILS_LOG_TO_STDOUT=true
 ENTRYPOINT ["/entrypoint.sh"]
