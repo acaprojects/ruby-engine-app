@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-cp -f ../Gemfile.lock.from-docker-build Gemfile.lock
+cp -f ../Gemfile.lock.from-docker-build Gemfile.lock 2>/dev/null
 
 if [ "$1" == "engine" ]; then
     cd /home/aca-apps/ruby-engine-app
