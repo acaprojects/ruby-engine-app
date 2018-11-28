@@ -24,8 +24,8 @@ RUN chmod a+x /entrypoint.sh && \
 WORKDIR /home/aca-apps
 
 RUN git clone --depth=1 --single-branch -b couchbase-orm https://github.com/QuayPay/coauth.git /home/aca-apps/coauth && \
-    git clone --depth=1 --single-branch -b stable https://github.com/acaprojects/ruby-engine.git && \
-    git clone --depth=1 https://github.com/acaprojects/aca-device-modules.git && \
+    git clone --depth=1 -b stable https://github.com/acaprojects/ruby-engine.git && \
+    git clone --depth=1 -b beta https://github.com/acaprojects/aca-device-modules.git && \
     git clone --depth=1 https://github.com/aca-labs/omniauth-jwt
 
 WORKDIR /home/aca-apps/ruby-engine-app
@@ -35,7 +35,8 @@ RUN apk del cmake && \
     rm -rf /var/cache/apk/*
 
 RUN echo "=====================================================" && \
-    cat Gemfile.lock
+    cat Gemfile.lock && \
+    cp Gemfile.lock ../Gemfile.lock.from-docker-build
 
 ENV RAILS_ENV=production DISABLE_SPRING=1 RAILS_LOG_TO_STDOUT=true
 ENTRYPOINT ["/entrypoint.sh"]
