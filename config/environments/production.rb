@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Replace the default JSON parser
+  require 'json'
+  require 'yajl/json_gem'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -64,7 +68,11 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDERR)
+    require 'mono_logger'
+    # no buffering
+    STDOUT.sync = true
+    STDERR.sync = true
+    logger      = ::MonoLogger.new(STDERR)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end

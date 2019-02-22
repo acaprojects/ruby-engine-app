@@ -38,3 +38,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'  #, platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'viewpoint2', git: 'https://github.com/aca-labs/viewpoint'
+
+gem 'rbtrace', require: 'rbtrace'
+gem 'yajl-ruby', require: 'yajl'
+gem 'mono_logger'
