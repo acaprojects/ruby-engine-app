@@ -99,7 +99,7 @@ namespace :import do
                   Orchestrator::ControlSystem.new.tap { |sys| sys.id = id }
 
             sys.name = name
-            sys.zones = zones unless
+            sys.zones = zones unless sys.zones.present?
             sys.email = email
             sys.bookable = bookable_from_aca_app == "Yes"
             sys.edge_id = EDGE
