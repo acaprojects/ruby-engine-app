@@ -13,4 +13,5 @@ done
 
 >&2 echo "Couch is up - starting engine"
 set -e
+cd /home/aca-apps/ruby-engine-app
 exec bundle exec sg -p 8080 -e production
