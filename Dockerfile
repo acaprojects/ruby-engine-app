@@ -1,6 +1,6 @@
 FROM aca0/engine-deps:master
 
-COPY entrypoint.sh /entrypoint.sh
+COPY wait-for-couch.sh /wait-for-couch.sh
 
 # Workaround for https://github.com/moby/moby/issues/15858
 WORKDIR /home/aca-apps/ruby-engine-app
@@ -17,7 +17,7 @@ COPY public/ ./public/
 COPY test/ ./test/
 COPY tmp/ ./tmp/
 
-RUN chmod a+x /entrypoint.sh && \
+RUN chmod a+x /wait-for-couch.sh && \
     cp -f /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
     echo "Australia/Sydney" >  /etc/timezone
 

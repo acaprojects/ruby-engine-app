@@ -26,6 +26,7 @@ group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
     gem 'byebug',      platform: :mri
     gem 'web-console', platform: :mri
+    gem 'rspec-rails'
 end
 
 group :development do
@@ -39,3 +40,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'  #, platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'viewpoint2', git: 'https://github.com/aca-labs/viewpoint'
+gem 'ruby-ntlm'
+
+gem 'rbtrace', require: 'rbtrace'
+gem 'yajl-ruby', require: 'yajl'
+gem 'mono_logger'
