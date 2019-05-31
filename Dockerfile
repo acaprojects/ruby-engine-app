@@ -39,5 +39,5 @@ RUN echo "=====================================================" && \
     cp Gemfile.lock ../Gemfile.lock.from-docker-build
 
 ENV RAILS_ENV=production DISABLE_SPRING=1 RAILS_LOG_TO_STDOUT=true
-ENTRYPOINT ["/wait-for-couch.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["engine"]
