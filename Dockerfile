@@ -1,6 +1,6 @@
 FROM aca0/engine-deps:master
 
-COPY wait-for-couch.sh /wait-for-couch.sh
+COPY entrypoint.sh /entrypoint.sh
 
 # Workaround for https://github.com/moby/moby/issues/15858
 WORKDIR /home/aca-apps/ruby-engine-app
