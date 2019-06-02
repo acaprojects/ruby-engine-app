@@ -17,7 +17,7 @@ COPY public/ ./public/
 COPY test/ ./test/
 COPY tmp/ ./tmp/
 
-RUN chmod a+x /wait-for-couch.sh && \
+RUN chmod a+x /entrypoint.sh && \
     cp -f /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
     echo "Australia/Sydney" >  /etc/timezone
 
