@@ -44,3 +44,6 @@ gem 'ruby-ntlm'
 gem 'rbtrace', require: 'rbtrace'
 gem 'yajl-ruby', require: 'yajl'
 gem 'mono_logger'
+
+# nio4r 2.5.1 caused errors in build
+gem 'nio4r', '2.4.0'
