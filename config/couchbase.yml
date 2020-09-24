@@ -15,3 +15,5 @@ production:
   hosts: <%= ENV['COUCHBASE_HOST'] %>
   bucket: <%= ENV['COUCHBASE_BUCKET'] %>
   password: <%= ENV['COUCHBASE_PASSWORD'] %>
+  operation_timeout: 10
+  config_total_timeout: 10
