@@ -53,3 +53,6 @@ gem 'sprockets', '3.7.2'
 
 # faraday 1.0.0+ is a breaking change requiring new instantiation method in all dependant libs
 gem 'faraday', '0.17.3'
+
+# omniauth 2+ is a breaking change to SSO
+gem 'omniauth', '1.9.1'
